@@ -19,7 +19,7 @@ module Kiqstand
       yield
     ensure
       if defined?(::Mongoid)
-        ::Mongoid::IdentityMap.clear
+        ::Mongoid::IdentityMap.clear if defined?(::Mongoid::IdentityMap)
         ::Mongoid.disconnect_sessions
       end
     end
